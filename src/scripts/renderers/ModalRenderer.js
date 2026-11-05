@@ -94,11 +94,7 @@ export class ModalRenderer {
 
       // Clear the URL hash fragment without triggering a page scroll jump
       if (updateHistory) {
-        history.replaceState(
-          '',
-          document.title,
-          window.location.pathname + window.location.search
-        );
+        history.replaceState('', document.title, window.location.pathname + window.location.search);
       }
     }, 300);
   }

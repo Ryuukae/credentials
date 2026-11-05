@@ -187,7 +187,8 @@ export const certificates = [
     date: '2024-08-22',
     hours: 10.4,
     credentialId: '2d03fa813f1e2e0ffeb33f409c53598bc72bb062ff1c848ee855868df0d572a2',
-    verifyUrl: 'https://www.linkedin.com/learning/certificates/2d03fa813f1e2e0ffeb33f409c53598bc72bb062ff1c848ee855868df0d572a2',
+    verifyUrl:
+      'https://www.linkedin.com/learning/certificates/2d03fa813f1e2e0ffeb33f409c53598bc72bb062ff1c848ee855868df0d572a2',
     ...asset('linkedin-mozilla-javascript-foundations-professional'),
     imageAlt: 'LinkedIn Learning JavaScript Foundations Professional Certificate by Mozilla.',
     details: {
@@ -203,7 +204,8 @@ export const certificates = [
     date: '2024-08-20',
     hours: 6.2,
     credentialId: 'a15d1a1206f973ffe40390fbcc199976882a99408cac8ab1da90829e77171f50',
-    verifyUrl: 'https://www.linkedin.com/learning/certificates/a15d1a1206f973ffe40390fbcc199976882a99408cac8ab1da90829e77171f50',
+    verifyUrl:
+      'https://www.linkedin.com/learning/certificates/a15d1a1206f973ffe40390fbcc199976882a99408cac8ab1da90829e77171f50',
     ...asset('linkedin-javascript-essential-training'),
     imageAlt: 'LinkedIn Learning certificate for JavaScript Essential Training.',
     details: {
@@ -219,7 +221,8 @@ export const certificates = [
     date: '2024-08-19',
     hours: 4.1,
     credentialId: 'ea8c4d1eaf097f5ecb7e65b539692afa202776b33648a452d5c6a410f2335e8a',
-    verifyUrl: 'https://www.linkedin.com/learning/certificates/ea8c4d1eaf097f5ecb7e65b539692afa202776b33648a452d5c6a410f2335e8a',
+    verifyUrl:
+      'https://www.linkedin.com/learning/certificates/ea8c4d1eaf097f5ecb7e65b539692afa202776b33648a452d5c6a410f2335e8a',
     ...asset('linkedin-learning-the-javascript-language'),
     imageAlt: 'LinkedIn Learning certificate for Learning the JavaScript Language.',
     details: {
@@ -312,7 +315,8 @@ export const certificates = [
     date: '2024-06-04',
     verifyUrl: 'https://hyperskill.org/certificates/c05911ea-ae0c-48b3-b523-ed8cccf4b70d.pdf',
     ...asset('hyperskill-introduction-to-spring-boot-with-java'),
-    imageAlt: 'Hyperskill certificate of completion for the Introduction to Spring Boot with Java track.',
+    imageAlt:
+      'Hyperskill certificate of completion for the Introduction to Spring Boot with Java track.',
     details: {
       description: 'Track with 3 projects and 136 topics.',
       skills: ['Java', 'Spring Boot'],
@@ -340,7 +344,8 @@ export const certificates = [
     date: '2024-04-22',
     verifyUrl: coursera('FT9E74T9GG4Q'),
     ...asset('coursera-deeplearningai-generative-ai-with-large-language-models'),
-    imageAlt: 'Coursera certificate for Generative AI with Large Language Models from DeepLearning.AI.',
+    imageAlt:
+      'Coursera certificate for Generative AI with Large Language Models from DeepLearning.AI.',
     details: { skills: ['Generative AI', 'Large Language Models'] },
   },
 ];

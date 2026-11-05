@@ -7,6 +7,22 @@
 !package-lock.json
 !readme.md
 !vite.config.js
+!eslint.config.js
+!commitlint.config.js
+!.prettierrc
+!.releaserc.json
+!CHANGELOG.md
+!.prettierignore
+!.htmlvalidate.json
+!.lintstagedrc.json
+
+!.github/
+!.github/**
+
+!.husky/
+.husky/_
+!.husky/pre-commit
+!.husky/commit-msg
 
 !src/
 !src/**
