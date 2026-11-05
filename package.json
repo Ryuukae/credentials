@@ -1,0 +1,17 @@
+{
+  "name": "credentials",
+  "version": "0.1.0",
+  "description": "Certificates and credentials of Adam Ross DeStafeno.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,68 @@
+/* font-styles.css */
+@import url('color-pallet.css');
+
+.header-title-font {
+  color: var(--header-font-color);
+  font-size: clamp(2.5em, 5vw, 3.5em);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.repo-arrow-font {
+  color: var(--blue-1);
+  font-size: 1.2em;
+}
+
+.repo-description-font {
+  font-size: clamp(0.85em, 1vw, 1em);
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.repo-item-font a {
+  font-family: Roboto, sans-serif;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.repo-name-font {
+  color: white;
+  font-family: Roboto, sans-serif;
+  font-size: clamp(1.2em, 1.5vw, 1.5em);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.subheader-link-font {
+  font-family: Roboto, sans-serif;
+}
+
+.subheader-title-font {
+  color: var(--repo-description-color);
+  font-family: Roboto, sans-serif;
+  font-size: clamp(0.9em, 1.5vw, 1.1em);
+}
+
+#subheader-author-link,
+#subheader-email-link,
+#subheader-linkedin-link,
+#subheader-portfolio-link,
+#subheader-github-link {
+  color: var(--blue-1);
+  text-decoration: none;
+}
+
+#subheader-author-link:hover,
+#subheader-email-link:hover,
+#subheader-linkedin-link:hover,
+#subheader-portfolio-link:hover,
+#subheader-github-link:hover {
+  text-decoration: underline;
+}

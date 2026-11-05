@@ -1,0 +1,181 @@
+/* keyframe-styles.css */
+@import url('color-pallet.css');
+
+/* Animations */
+@keyframes ripple-effect {
+  0%,
+  100% {
+    text-shadow:
+      0 0 5px var(--ripple-glow-1),
+      0 0 15px var(--ripple-glow-2),
+      2px 2px 4px rgb(0, 0, 0, 50%);
+  }
+
+  50% {
+    text-shadow:
+      0 0 10px var(--ripple-glow-3),
+      0 0 20px var(--ripple-glow-1),
+      2px 2px 8px rgb(0, 0, 0, 70%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  animation: fade-in 3s ease-in-out forwards; /* Increased duration and changed timing function */
+}
+
+.fade-in:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 1.6s;
+}
+
+.fade-in:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.fade-in:nth-child(4) {
+  animation-delay: 3.2s;
+}
+
+.fade-in:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.fade-in:nth-child(6) {
+  animation-delay: 4.4s;
+}
+
+.fade-in:nth-child(7) {
+  animation-delay: 5s;
+}
+
+.fade-in:nth-child(8) {
+  animation-delay: 5.6s;
+}
+
+.fade-in:nth-child(9) {
+  animation-delay: 6.2s;
+}
+
+.fade-in:nth-child(10) {
+  animation-delay: 7s;
+}
+
+.fade-in:nth-child(11) {
+  animation-delay: 7.6s;
+}
+
+.fade-in:nth-child(12) {
+  animation-delay: 8.2s;
+}
+
+.fade-in:nth-child(13) {
+  animation-delay: 8.8s;
+}
+
+.fade-in:nth-child(14) {
+  animation-delay: 9.4s;
+}
+
+.fade-in:nth-child(15) {
+  animation-delay: 10s;
+}
+
+@keyframes lighthouse-pulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 20px rgba(0, 200, 185, 0.8),
+      0 0 40px rgba(0, 200, 185, 0.4);
+    opacity: 1;
+  }
+
+  50% {
+    text-shadow: none;
+    opacity: 0; /* Completely transparent */
+  }
+}
+
+@keyframes grid-pulse {
+  0% {
+    opacity: 0.15;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes flash-pulse-blue {
+  0%,
+  100% {
+    color: #22d3ee;
+    text-shadow: 0 0 5px rgba(34, 211, 238, 0.4);
+  }
+
+  50% {
+    color: #cffafe;
+    text-shadow:
+      0 0 15px rgba(34, 211, 238, 0.9),
+      0 0 25px rgba(34, 211, 238, 0.7);
+  }
+}
+
+.hover-pulse-blue:hover {
+  animation: flash-pulse-blue 1.2s infinite ease-in-out;
+}
+
+@keyframes border-pulse {
+  0%,
+  100% {
+    border-color: rgba(26, 95, 120, 0.1);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.9),
+      0 0 5px rgba(0, 255, 255, 0.02);
+  }
+
+  50% {
+    border-color: rgba(26, 95, 120, 0.4);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.9),
+      0 0 15px rgba(34, 211, 238, 0.1),
+      inset 0 0 10px rgba(34, 211, 238, 0.05);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 6s infinite ease-in-out;
+}
+
+.spark-btn {
+  position: relative;
+  z-index: 1;
+}
