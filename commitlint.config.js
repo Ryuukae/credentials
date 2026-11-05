@@ -3,6 +3,8 @@ export default {
   ignores: [
     (message) => /^(build|ci)\(deps(-dev)?\):/.test(message),
     (message) => /^chore\(release\):/.test(message),
+    // GitHub pull request merge commits, titled "... (#123)"
+    (message) => /^[^\r\n]+\(#\d+\)\s*(\r?\n|$)/.test(message),
   ],
   rules: {
     'body-max-line-length': [2, 'always', 72],
