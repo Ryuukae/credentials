@@ -10,6 +10,8 @@
 !eslint.config.js
 !commitlint.config.js
 !.prettierrc
+!.releaserc.json
+!CHANGELOG.md
 !.prettierignore
 !.htmlvalidate.json
 !.lintstagedrc.json
