@@ -1,6 +1,6 @@
 {
   "name": "credentials",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Certificates and credentials of Adam Ross DeStafeno.",
   "private": true,
   "type": "module",
