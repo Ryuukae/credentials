@@ -1,0 +1,12 @@
+# Allow-list: everything is ignored unless it is listed below.
+*
+
+!.gitignore
+!index.html
+!package.json
+!package-lock.json
+!readme.md
+!vite.config.js
+
+!src/
+!src/**
