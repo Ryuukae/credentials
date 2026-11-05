@@ -7,10 +7,29 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "npm run lint:js && npm run lint:html",
+    "lint:js": "eslint src \"*.js\" --max-warnings 0",
+    "lint:html": "html-validate \"*.html\"",
+    "lint:commit": "commitlint --edit",
+    "audit": "npm audit --audit-level=high --omit=dev",
+    "verify": "npm run format:check && npm run lint && npm run audit && npm run build"
   },
   "devDependencies": {
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
+    "@eslint/js": "10.0.1",
     "@tailwindcss/vite": "^4.3.3",
+    "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.14.0",
+    "html-validate": "11.18.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.10",
     "tailwindcss": "^4.3.3",
     "vite": "^8.3.0"
   }
