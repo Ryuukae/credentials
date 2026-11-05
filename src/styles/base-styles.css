@@ -1,0 +1,242 @@
+/* base-styles.css */
+@import url('keyframe-styles.css');
+@import url('color-pallet.css');
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for professional pop */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(82, 139, 141, 0.5); /* Soft teal */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-1); /* Bright teal on hover */
+}
+
+body {
+  /* Extremely deep cosmic background, shifting to pure black faster */
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(5, 25, 40, 1) 0%,
+    rgba(5, 5, 15, 1) 30%,
+    #000000 70%
+  );
+  background-attachment: fixed;
+  background-color: #000000;
+  color: var(--text-color);
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Layer 1: The grid pulsing background */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-pulse 10s infinite alternate ease-in-out;
+  z-index: -3;
+  pointer-events: none;
+}
+
+/* Layer 1.5: Deep space vignette and heavy bottom corner darkening */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-shadow:
+    inset 0 -250px 300px -50px rgba(0, 0, 0, 1),
+    inset 0 0 100px rgba(0, 0, 0, 0.9);
+  z-index: -2;
+  pointer-events: none;
+}
+
+#header-canvas {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#network-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none; /* Let clicks pass through to the cards */
+}
+
+.no-top-margin {
+  margin-top: 0;
+}
+
+.header-container {
+  background: rgba(0, 5, 10, 0.35); /* Increased opacity to balance light bleed */
+  backdrop-filter: blur(24px); /* Massive blur for premium glass effect */
+  -webkit-backdrop-filter: blur(24px);
+  border: none;
+  border-bottom: ridge 0.1rem rgba(184, 227, 233, 0.1); /* border-bottom: 1px solid rgba(0, 255, 255, 0.1); */
+  box-shadow:
+    inset 0 -30px 60px rgba(0, 0, 0, 0.8),
+    /* Blend bottom edge */ inset 0 0 60px rgba(0, 255, 255, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 50px 0;
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.header-title {
+  animation: lighthouse-pulse 10s infinite linear;
+  color: var(--header-font-color);
+  margin: 0;
+  position: relative;
+  text-shadow:
+    0 0 20px rgba(0, 200, 185, 0.8),
+    0 0 40px rgba(0, 200, 185, 0.4);
+}
+
+.shimmer-text {
+  /* Advanced Animated Gradient Shimmer */
+  background: linear-gradient(90deg, #fff 0%, #88ffff 25%, #00ffff 50%, #88ffff 75%, #fff 100%);
+  margin: 0;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shine 8s linear infinite;
+}
+
+@keyframes text-shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.header-subtitle-font {
+  animation: fade-in 1.5s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  z-index: 9;
+}
+
+.subheader-container {
+  animation: fade-in 1.5s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  z-index: 9;
+}
+
+.subheader {
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.subheader-container p {
+  margin: 5px 0;
+}
+
+#subheader-author-prefix {
+  padding-left: 40px;
+}
+
+#subheader-divider {
+  display: block;
+  border-bottom: 1.5px solid rgb(255, 255, 255, 30%);
+  margin: auto 49%;
+}
+
+@keyframes border-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.magic-border {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.magic-border::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400%;
+  aspect-ratio: 1;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(0, 255, 255, 0.8) 15%,
+    transparent 30%
+  );
+  animation: border-rotate 8s linear infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.magic-border::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: rgba(5, 10, 15, 0.8);
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.name-pulse-gradient {
+  background: linear-gradient(
+    90deg,
+    #22d3ee 0%,
+    #22d3ee 45%,
+    #ffffff 50%,
+    #22d3ee 55%,
+    #22d3ee 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shine 3.5s linear infinite;
+}

@@ -1,0 +1,67 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Page title and basic metadata -->
+    <title>Adam Ross DeStafeno · Credentials</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Certificates and credentials earned by Adam Ross DeStafeno (Ryuukae), with links to view, download and verify each one."
+    />
+    <meta name="author" content="Adam Ross DeStafeno" />
+    <meta
+      name="keywords"
+      content="credentials, certificates, certifications, Adam Ross DeStafeno, Ryuukae, web development"
+    />
+    <!-- openGraph metadata -->
+    <meta property="og:title" content="Adam Ross DeStafeno · Credentials" />
+    <meta
+      property="og:description"
+      content="Certificates and credentials earned by Adam Ross DeStafeno (Ryuukae)."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pages.ryuukae.io/credentials/" />
+
+    <!-- External stylesheets and fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Local stylesheets -->
+    <link rel="stylesheet" href="./src/styles/tailwind.css" type="text/css" />
+    <link rel="stylesheet" href="./src/styles/base-styles.css" type="text/css" />
+    <link rel="stylesheet" href="./src/styles/font-styles.css" type="text/css" />
+    <link rel="stylesheet" href="./src/styles/modal.css" type="text/css" />
+
+    <!--  Javascript imports -->
+    <script src="./src/scripts/main.js" type="module"></script>
+  </head>
+
+  <body class="fade-in">
+    <!-- Cyber-Glass Network Background -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- Header Section -->
+    <div class="header-container relative">
+      <!-- Lighthouse Starry Network -->
+      <canvas id="header-canvas"></canvas>
+      <h1
+        class="header-title header-title-font text-cyan-400 font-extrabold tracking-wider drop-shadow-[0_0_25px_rgba(0,255,255,1)]"
+      >
+        Adam Ross DeStafeno · Credentials
+      </h1>
+    </div>
+
+    <!-- Credentials Section (filled by the gallery) -->
+    <div class="flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]">
+      <ul id="credentials-container" class="columns-1 md:columns-2 gap-6 list-none p-0"></ul>
+    </div>
+  </body>
+</html>

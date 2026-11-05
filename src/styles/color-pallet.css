@@ -1,0 +1,56 @@
+/* color-pallet.css */
+:root {
+  /* Colors - Backgrounds */
+  --background-color: #000000;
+  --subheader-background: #0a0a14;
+
+  /* Cybernetic Layer Colors */
+  --layer1-grid-color: rgba(0, 200, 185, 0.05);
+  --layer2-node-glow: rgba(0, 200, 185, 0.9);
+  --layer2-edge: rgba(0, 255, 204, 0.8);
+  --layer3-circuit: rgba(26, 95, 120, 0.25);
+  --layer3-node: rgba(0, 200, 185, 0.3);
+  --layer3-pulse: #ffffff;
+
+  /* Colors - Box Shadows */
+  --image-container-box-shadow: rgba(255, 255, 255, 0.5);
+  --repo-box-shadow: rgba(0, 0, 0, 0.2);
+  --repo-hover-box-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Colors - Gradients */
+  --gradient-end: #3a3a3a;
+  --gradient-start: #1f1f1f;
+
+  /* Colors - Header */
+  --subheader-font-color: #b3b3b3;
+  --header-font-color: rgb(147, 245, 226);
+
+  /* Colors - Borders */
+  --hover-border: rgba(0, 255, 204, 0.8);
+  --image-border: #00ffcc;
+
+  /* Colors - Links and Text */
+  --link-color: #00ffcc;
+  --font-color: #e0e0e0;
+
+  /* Colors - Repository */
+  --repo-background: #1a1a1a;
+  --repo-description-color: #b3b3b3;
+  --repo-details-background: #2a2a2a;
+  --repo-details-text-color: #e0e0e0;
+  --repo-item-background: #1a1a1a91;
+
+  /* Colors - Blues */
+  --blue-1: rgba(0, 200, 185, 1);
+  --blue-2: rgba(0, 255, 204, 0.8);
+  --blue-3: rgba(0, 255, 204, 0.6);
+  --blue-4: rgba(0, 255, 204, 0.4);
+  --blue-5: rgb(26, 95, 120);
+
+  /* Colors - Ripple Glow */
+  --ripple-glow-1: rgba(255, 255, 255, 0.8);
+  --ripple-glow-2: rgba(255, 255, 255, 0.6);
+  --ripple-glow-3: rgba(255, 255, 255, 1);
+  --ripple-glow-4: rgba(0, 255, 254, 0.2);
+  --ripple-glow-5: rgba(0, 0, 7, 1);
+}
