@@ -1,0 +1,130 @@
+name: Main Pipeline (Validate, Release, Deploy)
+
+on:
+  push:
+    branches: ['main']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate workflow syntax (actionlint)
+        uses: reviewdog/action-actionlint@v1
+        with:
+          fail_level: error
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify formatting
+        run: npm run format:check
+      - name: Run linters
+        run: npm run lint
+      - name: Audit dependencies (high and above)
+        run: npm run audit
+      - name: Verify production build
+        run: npm run build
+
+  release:
+    name: Semantic Release
+    needs: [validate]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    env:
+      GPG_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+    steps:
+      - name: Generate GitHub App token
+        id: generate-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ steps.generate-token.outputs.token }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Get GitHub App user ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.generate-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+      - name: Import GPG key for verified signatures
+        uses: crazy-max/ghaction-import-gpg@v7
+        if: env.GPG_KEY != ''
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: false
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GIT_AUTHOR_NAME: ${{ steps.generate-token.outputs.app-slug }}[bot]
+          GIT_AUTHOR_EMAIL: ${{ steps.get-user-id.outputs.user-id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: 'Ryuukae'
+          GIT_COMMITTER_EMAIL: 'ryuukae.dev@gmail.com'
+          HUSKY: 0
+        run: npx semantic-release
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: [release]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout released main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
