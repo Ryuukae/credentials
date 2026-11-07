@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <!-- Page title and basic metadata -->
-    <title>Adam Ross DeStafeno · Credentials</title>
+    <title>Certifications &amp; Credentials</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -16,7 +16,7 @@
       content="credentials, certificates, certifications, Adam Ross DeStafeno, Ryuukae, web development"
     />
     <!-- openGraph metadata -->
-    <meta property="og:title" content="Adam Ross DeStafeno · Credentials" />
+    <meta property="og:title" content="Certifications &amp; Credentials" />
     <meta
       property="og:description"
       content="Certificates and credentials earned by Adam Ross DeStafeno (Ryuukae)."
@@ -38,7 +38,9 @@
     <link rel="stylesheet" href="./src/styles/tailwind.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/base-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/font-styles.css" type="text/css" />
+    <link rel="stylesheet" href="./src/styles/gallery.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/modal.css" type="text/css" />
+    <link rel="stylesheet" href="./src/scripts/ui/filter-bar/filter-bar.css" type="text/css" />
 
     <!--  Javascript imports -->
     <script src="./src/scripts/main.js" type="module"></script>
@@ -55,13 +57,39 @@
       <h1
         class="header-title header-title-font text-cyan-400 font-extrabold tracking-wider drop-shadow-[0_0_25px_rgba(0,255,255,1)]"
       >
-        Adam Ross DeStafeno · Credentials
+        Certifications &amp; Credentials
       </h1>
+    </div>
+
+    <!-- Intro -->
+    <div
+      class="subheader-container mx-auto max-w-4xl mt-8 mb-8 p-6 bg-black/60 backdrop-blur-xl border border-cyan-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.8)] rounded-3xl flex flex-col items-center animate-border-pulse"
+    >
+      <p class="subheader font-mono tracking-wide leading-relaxed text-center text-gray-300">
+        <i
+          class="fas fa-certificate text-cyan-400 mr-2 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]"
+        ></i>
+        A verified collection of professional certifications held by
+        <span class="mt-3 inline-block">
+          <span
+            class="name-pulse-gradient italic font-bold px-1 drop-shadow-[0_0_8px_rgba(0,255,255,0.2)]"
+            >Adam Ross DeStafeno</span
+          >
+          (aka
+          <span
+            class="name-pulse-gradient italic font-bold px-1 drop-shadow-[0_0_8px_rgba(0,255,255,0.2)]"
+            >Ryuukae</span
+          >).
+        </span>
+      </p>
     </div>
 
     <!-- Credentials Section (filled by the gallery) -->
     <div class="flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]">
-      <ul id="credentials-container" class="columns-1 md:columns-2 gap-6 list-none p-0"></ul>
+      <div class="fb-shell">
+        <div id="filter-bar"></div>
+        <div id="credentials-container" class="cred-root"></div>
+      </div>
     </div>
   </body>
 </html>

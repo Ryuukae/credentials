@@ -2,7 +2,9 @@ import '../styles/tailwind.css';
 import { NetworkBackground } from './canvas/orchestrators/NetworkBackground.js';
 import { HeaderNetwork } from './canvas/orchestrators/HeaderNetwork.js';
 import { certificates } from './data/certificates.js';
-import { CertificateCardFactory } from './ui/CertificateCardFactory.js';
+import { filterConfig } from './config/filterConfig.js';
+import { GalleryRenderer } from './ui/GalleryRenderer.js';
+import { FilterBar } from './ui/filter-bar/FilterBar.js';
 import { ModalController } from './controllers/ModalController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,14 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerNetwork = new HeaderNetwork('header-canvas');
   headerNetwork.init();
 
-  // Render the credential cards and wire up the detail modal
-  const listContainer = document.getElementById('credentials-container');
-  if (listContainer) {
-    certificates.forEach((cert) => {
-      listContainer.appendChild(CertificateCardFactory.createCard(cert));
+  // Render the credential cards, filter bar and detail modal
+  const galleryRoot = document.getElementById('credentials-container');
+  const barMount = document.getElementById('filter-bar');
+  if (galleryRoot && barMount) {
+    const renderer = new GalleryRenderer(galleryRoot, () => filterBar.clear());
+    const filterBar = new FilterBar({
+      mount: barMount,
+      records: certificates,
+      config: filterConfig,
+      onChange: renderer.render,
     });
+    filterBar.init();
 
-    const modalController = new ModalController(listContainer);
+    const modalController = new ModalController(galleryRoot);
     modalController.init();
   }
 });
