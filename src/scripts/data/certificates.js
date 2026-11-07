@@ -27,7 +27,8 @@ export const certificates = [
     ...asset('ec-council-ai-essentials'),
     imageAlt: 'EC-Council Artificial Intelligence Essentials certification.',
     details: {
-      description: 'Certification earned through an examination administered by EC-Council.',
+      description:
+        "EC-Council's foundational AI literacy certification, earned by passing a 75-question, 2-hour exam with a 70% score. It covers how AI systems work and where they fail, everyday AI tools and use cases, the building blocks of AI from machine learning to generative AI, effective prompting, and ethical and responsible AI use. Valid for three years.",
       concepts: [
         'Human–AI Collaboration',
         'Data, Algorithms and Models',
@@ -52,7 +53,7 @@ export const certificates = [
     imageAlt: 'Coursera Google AI Professional Certificate, seven courses.',
     details: {
       description:
-        'Seven courses demonstrating the ability to apply AI to brainstorming, research, communication, content creation, data analysis and coding, including a portfolio of 20+ AI-assisted artifacts and a vibe-coded custom AI solution.',
+        'A Google program on Coursera that teaches how to apply generative AI to everyday work. The seven courses held here cover AI fundamentals, brainstorming and planning, research, writing and communication, content creation, data analysis and app building, and include a portfolio of 20+ AI-assisted artifacts and a vibe-coded custom AI solution.',
       concepts: [
         'Generative AI',
         'Structured Prompting',
@@ -88,6 +89,8 @@ export const certificates = [
     ...asset('coursera-google-ai-for-app-building'),
     imageAlt: 'Coursera certificate for AI for App Building from Google.',
     details: {
+      description:
+        'A course in the Google AI Professional Certificate on identifying workplace problems a custom AI solution could solve, building a web app through vibe coding and working in Google AI Studio.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'Vibe Coding',
@@ -109,6 +112,8 @@ export const certificates = [
     ...asset('coursera-google-ai-for-data-analysis'),
     imageAlt: 'Coursera certificate for AI for Data Analysis from Google.',
     details: {
+      description:
+        'A course in the Google AI Professional Certificate on defining success metrics, cleaning messy data, generating spreadsheet formulas from plain-language requests and creating AI-assisted visualizations.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'Defining Success Metrics',
@@ -131,6 +136,8 @@ export const certificates = [
     ...asset('coursera-google-ai-for-content-creation'),
     imageAlt: 'Coursera certificate for AI for Content Creation from Google.',
     details: {
+      description:
+        'A course in the Google AI Professional Certificate on generating images and video from creative concepts, improving slide decks, setting brand design guidelines and getting AI critiques of creative work.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'AI Image Generation',
@@ -153,6 +160,8 @@ export const certificates = [
     ...asset('coursera-google-ai-for-research-and-insights'),
     imageAlt: 'Coursera certificate for AI for Research and Insights from Google.',
     details: {
+      description:
+        'A course in the Google AI Professional Certificate on using Gemini Deep Research to build reports from multiple sources, organizing mixed-media inputs in a research hub, and checking AI findings against their sources.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'Gemini Deep Research',
@@ -174,6 +183,8 @@ export const certificates = [
     ...asset('coursera-google-ai-for-writing-and-communicating'),
     imageAlt: 'Coursera certificate for AI for Writing and Communicating from Google.',
     details: {
+      description:
+        'A course in the Google AI Professional Certificate on summarizing meeting transcripts into to-do lists, getting feedback on drafts, tailoring content for different audiences and rehearsing workplace conversations with AI.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'Meeting Summaries and To-Do Lists',
@@ -196,6 +207,8 @@ export const certificates = [
     ...asset('coursera-google-ai-fundamentals'),
     imageAlt: 'Coursera certificate for AI Fundamentals from Google.',
     details: {
+      description:
+        'The first course of the Google AI Professional Certificate. It covers generative AI basics, structured prompting, checking AI output for accuracy and bias, and finding the tasks in a workflow where AI can help.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'Generative AI Basics',
@@ -219,6 +232,8 @@ export const certificates = [
     ...asset('coursera-google-ai-for-brainstorming-and-planning'),
     imageAlt: 'Coursera certificate for AI for Brainstorming and Planning from Google.',
     details: {
+      description:
+        'A course in the Google AI Professional Certificate on using AI to generate and rank project ideas, spot timeline risks and gaps, and organize project documents in one hub.',
       partOf: 'Google AI Professional Certificate',
       concepts: [
         'Generating and Ranking Ideas',
@@ -244,7 +259,7 @@ export const certificates = [
     imageAlt: 'EC-Council Network Defense Essentials certification.',
     details: {
       description:
-        'Foundational network defense principles, network security controls, identity and access management, and data protection across modern network environments.',
+        "EC-Council's entry-level credential for foundational network defense and information security, earned by completing the course and passing a proctored exam. Its 12 modules span network security fundamentals, identity and access, administrative, physical and technical controls, virtualization and cloud, wireless, mobile and IoT security, cryptography and PKI, data security, and network traffic monitoring. Valid for three years.",
       concepts: [
         'Network Security Fundamentals',
         'Identity, Authentication and Authorization',
@@ -269,7 +284,8 @@ export const certificates = [
     ...asset('w3schools-certified-javascript-developer'),
     imageAlt: 'W3Schools Certified JavaScript Developer certificate, Professional level.',
     details: {
-      description: 'Passed the W3Schools JavaScript certification exam at the Professional level.',
+      description:
+        'A W3Schools certificate earned by passing an online multiple-choice exam. The score sets the level, and 90% or more earns Professional, as held here. The exam covers how JavaScript works, variables and data types, functions, conditionals and loops, DOM manipulation, event handling and debugging. The certificate does not expire.',
       concepts: [
         'How JavaScript Works',
         'Variables, Data Types and Operators',
@@ -294,7 +310,7 @@ export const certificates = [
     imageAlt: 'Coursera certificate for React Basics from Meta.',
     details: {
       description:
-        'Fundamental concepts behind the React library and the basic skills needed to build a simple, fast and scalable app: reusable components, props, forms and building an application in React.',
+        'A beginner Meta course on Coursera covering the core concepts of React for building user interfaces. Its four modules cover components, JSX and props, events and state with hooks, routing and media assets, and a graded mini project that builds a calculator app.',
       concepts: [
         'React Components',
         'JSX',
@@ -320,7 +336,8 @@ export const certificates = [
     ...asset('linkedin-mozilla-javascript-foundations-professional'),
     imageAlt: 'LinkedIn Learning JavaScript Foundations Professional Certificate by Mozilla.',
     details: {
-      description: 'Learning path completed in 10 hours 22 minutes.',
+      description:
+        'A LinkedIn Learning path endorsed by Mozilla, made up of two courses: Learning the JavaScript Language and JavaScript Essential Training. It runs from variables, types and functions to asynchronous code and DOM scripting, and the certificate is earned by passing a final exam.',
       concepts: [
         'Variables and Data Types',
         'Objects and Arrays',
@@ -346,7 +363,8 @@ export const certificates = [
     ...asset('linkedin-javascript-essential-training'),
     imageAlt: 'LinkedIn Learning certificate for JavaScript Essential Training.',
     details: {
-      description: 'Course completed in 6 hours 14 minutes.',
+      description:
+        'A beginner LinkedIn Learning course taught by Morten Rand-Hendriksen. It covers variables, data types, objects, arrays, functions, conditionals, loops, the DOM and events, with code challenges that give real-time feedback.',
       concepts: [
         'Variables and Data Types',
         'Objects and Classes',
@@ -372,7 +390,8 @@ export const certificates = [
     ...asset('linkedin-learning-the-javascript-language'),
     imageAlt: 'LinkedIn Learning certificate for Learning the JavaScript Language.',
     details: {
-      description: 'Course completed in 4 hours 7 minutes.',
+      description:
+        'A beginner LinkedIn Learning course taught by Joe Chellman, and part of the Mozilla JavaScript Foundations path. It covers the language from basic syntax to asynchronous code, prototypes and classes, with hands-on practice in GitHub Codespaces.',
       concepts: [
         'Syntax, Variables and Strings',
         'Objects and Arrays',
@@ -397,7 +416,11 @@ export const certificates = [
       'Email the certificate ID KP014664 to contact@karpado.com with the subject "Certificate Verification Required".',
     ...asset('karpado-java-programming'),
     imageAlt: 'Karpado certificate of completion for Java Programming.',
-    details: { concepts: ['Java', 'Object-Oriented Programming'] },
+    details: {
+      description:
+        'A certificate of completion for the Java Programming course from Karpado, an online Java training institute.',
+      concepts: ['Java', 'Object-Oriented Programming'],
+    },
   },
   {
     id: 'karpado-servlets-jsp-network-programming',
@@ -411,7 +434,11 @@ export const certificates = [
       'Email the certificate ID KP015588 to contact@karpado.com with the subject "Certificate Verification Required".',
     ...asset('karpado-servlets-jsp-network-programming'),
     imageAlt: 'Karpado certificate of completion for Servlets & JSP + Network Programming.',
-    details: { concepts: ['Java', 'Servlets', 'JavaServer Pages (JSP)', 'Network Programming'] },
+    details: {
+      description:
+        'A certificate of completion for the Servlets & JSP + Network Programming course from Karpado, an online Java training institute.',
+      concepts: ['Java', 'Servlets', 'JavaServer Pages (JSP)', 'Network Programming'],
+    },
   },
   {
     id: 'coursera-meta-programming-with-javascript',
@@ -424,6 +451,8 @@ export const certificates = [
     ...asset('coursera-meta-programming-with-javascript'),
     imageAlt: 'Coursera certificate for Programming with JavaScript from Meta.',
     details: {
+      description:
+        'A beginner Meta course on Coursera about the basics of web development with JavaScript. It covers functions, objects, arrays, functional and object-oriented programming, the DOM and unit testing with Jest, and ends with a capstone that builds a receipt maker for a fictional restaurant.',
       concepts: [
         'Functions, Arrays and Objects',
         'Error Handling and Defensive Programming',
@@ -449,7 +478,7 @@ export const certificates = [
     imageAlt: 'Coursera certificate for Version Control from Meta.',
     details: {
       description:
-        'Version control systems and how to build an effective software development workflow with them.',
+        'A beginner Meta course on Coursera about how developers collaborate on shared code without conflicts or lost work. It covers version control systems and team workflows, the Linux command line, and Git and GitHub: repositories, commits, branches and merge conflicts.',
       concepts: [
         'Version Control Systems',
         'Software Collaboration Workflows',
@@ -472,6 +501,8 @@ export const certificates = [
     ...asset('coursera-meta-introduction-to-front-end-development'),
     imageAlt: 'Coursera certificate for Introduction to Front-End Development from Meta.',
     details: {
+      description:
+        "The first course in Meta's Front-End Developer program. It introduces the roles of front-end, back-end and full-stack developers, then HTML, CSS and JavaScript basics, Bootstrap and React, and ends with a responsive webpage built with HTML and Bootstrap.",
       concepts: [
         'Front-End, Back-End and Full-Stack Roles',
         'How the Web Works (HTTP)',
@@ -495,7 +526,8 @@ export const certificates = [
     ...asset('hyperskill-introduction-to-java'),
     imageAlt: 'Hyperskill certificate of completion for the Introduction to Java track.',
     details: {
-      description: 'Track with 3 projects and 77 topics.',
+      description:
+        'A JetBrains Academy track on Hyperskill that teaches core Java: syntax, data types, operators, control flow, strings and arrays, object-oriented basics and error handling. Completed with 3 projects and 77 topics.',
       concepts: [
         'Java Syntax',
         'Data Types and Variables',
@@ -520,7 +552,8 @@ export const certificates = [
     imageAlt:
       'Hyperskill certificate of completion for the Introduction to Spring Boot with Java track.',
     details: {
-      description: 'Track with 3 projects and 136 topics.',
+      description:
+        'A JetBrains Academy track on Hyperskill that introduces Spring Boot together with the Java it builds on: autoconfiguration, dependency injection, RESTful APIs and database persistence. Completed with 3 projects and 136 topics.',
       concepts: [
         'Java Fundamentals',
         'Object-Oriented Programming',
@@ -542,7 +575,8 @@ export const certificates = [
     ...asset('hyperskill-jetbrains-java-full-stack-developer'),
     imageAlt: 'Hyperskill certificate of completion for the Java Full Stack Developer track.',
     details: {
-      description: 'Track with 6 projects and 271 topics.',
+      description:
+        'A JetBrains Academy track on Hyperskill that combines backend and frontend work with Java and JavaScript, including Spring Boot, databases and communication protocols such as WebSockets. Completed with 6 projects and 271 topics.',
       concepts: [
         'Core Java',
         'Spring Boot',
@@ -567,6 +601,8 @@ export const certificates = [
     imageAlt:
       'Coursera certificate for Generative AI with Large Language Models from DeepLearning.AI.',
     details: {
+      description:
+        'An intermediate course from DeepLearning.AI and AWS on how large language models work and how to apply them. It covers the generative AI project lifecycle, the transformer architecture, pre-training, fine-tuning and evaluation, reinforcement learning from human feedback and LLM-powered applications, with hands-on labs.',
       concepts: [
         'Generative AI Project Lifecycle',
         'Transformer Architecture',
