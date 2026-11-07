@@ -1,3 +1,4 @@
+import { VERIFY_HINT } from '../data/certificates.js';
 import { assetUrl, formatDate } from '../utils/format.js';
 
 const CHIP_CLASS =
@@ -61,9 +62,9 @@ export class CertificateModalView {
                 <h3 class="${HEADING_CLASS}"><i class="fas fa-align-left mr-2 opacity-80"></i>About</h3>
                 <p class="modal-description-text text-[15px] leading-relaxed text-slate-300/90 font-sans whitespace-pre-wrap"></p>
               </div>
-              <div class="modal-skills hidden">
-                <h3 class="${HEADING_CLASS}"><i class="fas fa-layer-group mr-2 opacity-80"></i>Skills</h3>
-                <ul class="modal-skills-list flex flex-wrap gap-2"></ul>
+              <div class="modal-concepts hidden">
+                <h3 class="${HEADING_CLASS}"><i class="fas fa-layer-group mr-2 opacity-80"></i>Key Concepts</h3>
+                <ul class="modal-concepts-list flex flex-wrap gap-2"></ul>
               </div>
               <div class="modal-courses hidden">
                 <h3 class="${HEADING_CLASS}"><i class="fas fa-book mr-2 opacity-80"></i>Courses</h3>
@@ -104,9 +105,9 @@ export class CertificateModalView {
 
     this.show('.modal-part-of', details.partOf, '.modal-part-of-text');
     this.show('.modal-description', details.description, '.modal-description-text');
-    this.show('.modal-verify-note', cert.verifyNote, '.modal-verify-note-text');
+    this.hydrateVerifyNote();
 
-    this.fillList('.modal-skills', '.modal-skills-list', details.skills, CHIP_CLASS);
+    this.fillList('.modal-concepts', '.modal-concepts-list', details.concepts, CHIP_CLASS);
     this.fillList('.modal-courses', '.modal-courses-list', details.courses, '');
 
     this.hydrateActions();
@@ -146,29 +147,73 @@ export class CertificateModalView {
   }
 
   /**
-   * Adds the term/value pairs (issued, expires, duration, level, credential ID).
+   * Fills "How to verify" with the record's own note, or the standard sentence
+   * for its issuer, followed by an inline Verify link when the verify URL is
+   * a web page (a `mailto:` is already explained by the note).
+   * @private
+   */
+  hydrateVerifyNote() {
+    const { cert } = this;
+    const text = cert.verifyNote ?? VERIFY_HINT[cert.issuer];
+    if (!text) return;
+    this.show('.modal-verify-note', text, '.modal-verify-note-text');
+    if (!cert.verifyUrl?.startsWith('https://')) return;
+    const p = this.view.querySelector('.modal-verify-note-text');
+    const a = document.createElement('a');
+    a.href = cert.verifyUrl;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = 'Verify';
+    a.className = 'text-cyan-300 underline underline-offset-2 hover:text-white';
+    p.append(' ', a);
+  }
+
+  /**
+   * Adds the labelled facts in a fixed order: provider, issuer, issued,
+   * expires, credential ID, then level when present. Expires and
+   * credential ID always show; a missing value reads "N/A", and a missing
+   * credential ID links to the verify URL when there is one.
    * @private
    */
   hydrateFacts() {
     const { cert } = this;
+    const NOT_AVAILABLE = 'N/A';
     const facts = [
-      ['Issued', formatDate(cert.date)],
-      ['Expires', cert.expires ? formatDate(cert.expires) : null],
-      ['Duration', cert.hours ? `${cert.hours} hours` : null],
-      ['Level', cert.level],
-      ['Credential ID', cert.credentialId],
-    ].filter(([, value]) => value);
+      { term: 'Provider', value: cert.provider },
+      { term: 'Issuer', value: cert.issuer },
+      { term: 'Issued', value: formatDate(cert.date) },
+      { term: 'Expires', value: cert.expires ? formatDate(cert.expires) : NOT_AVAILABLE },
+      {
+        term: 'Credential ID',
+        value: cert.credentialId || NOT_AVAILABLE,
+        href: cert.credentialId ? null : cert.verifyUrl,
+        wide: true,
+      },
+      { term: 'Level', value: cert.level },
+    ].filter(({ value }) => value);
 
     const dl = this.view.querySelector('.modal-facts');
-    facts.forEach(([term, value]) => {
+    facts.forEach(({ term, value, href, wide }) => {
       const wrap = document.createElement('div');
-      if (term === 'Credential ID') wrap.className = 'col-span-2';
+      if (wide) wrap.className = 'col-span-2';
       const dt = document.createElement('dt');
       dt.className = 'text-[10px] font-bold uppercase tracking-[0.15em] text-cyan-600 mb-1';
       dt.textContent = term;
       const dd = document.createElement('dd');
       dd.className = 'text-slate-200 break-all';
-      dd.textContent = value;
+      if (href) {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = value;
+        a.className = 'text-cyan-300 underline underline-offset-2 hover:text-white';
+        if (href.startsWith('https://')) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+        dd.appendChild(a);
+      } else {
+        dd.textContent = value;
+      }
       wrap.append(dt, dd);
       dl.appendChild(wrap);
     });
