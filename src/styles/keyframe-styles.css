@@ -44,69 +44,25 @@
 }
 
 /* Animation Classes */
+/* Short fade; `--i` (set in JS) staggers siblings by 40ms each. */
 .fade-in {
   opacity: 0;
-  animation: fade-in 3s ease-in-out forwards; /* Increased duration and changed timing function */
+  animation: fade-in 0.4s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 40ms);
 }
 
-.fade-in:nth-child(1) {
-  animation-delay: 1s;
-}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .subheader-container,
+  .header-subtitle-font {
+    animation: none;
+    opacity: 1;
+  }
 
-.fade-in:nth-child(2) {
-  animation-delay: 1.6s;
-}
-
-.fade-in:nth-child(3) {
-  animation-delay: 2s;
-}
-
-.fade-in:nth-child(4) {
-  animation-delay: 3.2s;
-}
-
-.fade-in:nth-child(5) {
-  animation-delay: 4s;
-}
-
-.fade-in:nth-child(6) {
-  animation-delay: 4.4s;
-}
-
-.fade-in:nth-child(7) {
-  animation-delay: 5s;
-}
-
-.fade-in:nth-child(8) {
-  animation-delay: 5.6s;
-}
-
-.fade-in:nth-child(9) {
-  animation-delay: 6.2s;
-}
-
-.fade-in:nth-child(10) {
-  animation-delay: 7s;
-}
-
-.fade-in:nth-child(11) {
-  animation-delay: 7.6s;
-}
-
-.fade-in:nth-child(12) {
-  animation-delay: 8.2s;
-}
-
-.fade-in:nth-child(13) {
-  animation-delay: 8.8s;
-}
-
-.fade-in:nth-child(14) {
-  animation-delay: 9.4s;
-}
-
-.fade-in:nth-child(15) {
-  animation-delay: 10s;
+  .animate-border-pulse,
+  .header-title {
+    animation: none;
+  }
 }
 
 @keyframes lighthouse-pulse {
