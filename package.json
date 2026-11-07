@@ -11,9 +11,10 @@
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "npm run lint:js && npm run lint:html",
-    "lint:js": "eslint src \"*.js\" --max-warnings 0",
+    "lint": "npm run lint:js && npm run lint:html && npm run check:data",
+    "lint:js": "eslint src scripts \"*.js\" --max-warnings 0",
     "lint:html": "html-validate \"*.html\"",
+    "check:data": "node scripts/check-data.js",
     "lint:commit": "commitlint --edit",
     "audit": "npm audit --audit-level=high --omit=dev",
     "verify": "npm run format:check && npm run lint && npm run audit && npm run build"
