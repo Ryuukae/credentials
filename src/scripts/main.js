@@ -16,8 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render the credential cards and wire up the detail modal
   const listContainer = document.getElementById('credentials-container');
   if (listContainer) {
-    certificates.forEach((cert) => {
-      listContainer.appendChild(CertificateCardFactory.createCard(cert));
+    certificates.forEach((cert, index) => {
+      const card = CertificateCardFactory.createCard(cert);
+      // Stagger the fade-in; capped so the whole grid settles in about a second.
+      card.style.setProperty('--i', Math.min(index, 15));
+      listContainer.appendChild(card);
     });
 
     const modalController = new ModalController(listContainer);

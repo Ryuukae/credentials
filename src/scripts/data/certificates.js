@@ -8,6 +8,7 @@
 const asset = (id) => ({
   pdf: `certificates/pdf/${id}.pdf`,
   image: `certificates/img/${id}.webp`,
+  image2x: `certificates/img/${id}@2x.webp`,
 });
 
 const coursera = (code) => `https://coursera.org/verify/${code}`;

@@ -97,6 +97,7 @@ export class CertificateModalView {
 
     const img = q('.modal-main-image');
     img.src = assetUrl(cert.image);
+    img.srcset = `${assetUrl(cert.image)} 1100w, ${assetUrl(cert.image2x)} 2200w`;
     img.alt = cert.imageAlt;
 
     this.hydrateFacts();
