@@ -146,29 +146,52 @@ export class CertificateModalView {
   }
 
   /**
-   * Adds the term/value pairs (issued, expires, duration, level, credential ID).
+   * Adds the labelled facts in a fixed order: provider, issuer, issued,
+   * expires, credential ID, then duration and level when present. Expires and
+   * credential ID always show; a missing value reads "N/A", and a missing
+   * credential ID links to the verify URL when there is one.
    * @private
    */
   hydrateFacts() {
     const { cert } = this;
+    const NOT_AVAILABLE = 'N/A';
     const facts = [
-      ['Issued', formatDate(cert.date)],
-      ['Expires', cert.expires ? formatDate(cert.expires) : null],
-      ['Duration', cert.hours ? `${cert.hours} hours` : null],
-      ['Level', cert.level],
-      ['Credential ID', cert.credentialId],
-    ].filter(([, value]) => value);
+      { term: 'Provider', value: cert.provider },
+      { term: 'Issuer', value: cert.issuer },
+      { term: 'Issued', value: formatDate(cert.date) },
+      { term: 'Expires', value: cert.expires ? formatDate(cert.expires) : NOT_AVAILABLE },
+      {
+        term: 'Credential ID',
+        value: cert.credentialId || NOT_AVAILABLE,
+        href: cert.credentialId ? null : cert.verifyUrl,
+        wide: true,
+      },
+      { term: 'Duration', value: cert.hours ? `${cert.hours} hours` : null },
+      { term: 'Level', value: cert.level },
+    ].filter(({ value }) => value);
 
     const dl = this.view.querySelector('.modal-facts');
-    facts.forEach(([term, value]) => {
+    facts.forEach(({ term, value, href, wide }) => {
       const wrap = document.createElement('div');
-      if (term === 'Credential ID') wrap.className = 'col-span-2';
+      if (wide) wrap.className = 'col-span-2';
       const dt = document.createElement('dt');
       dt.className = 'text-[10px] font-bold uppercase tracking-[0.15em] text-cyan-600 mb-1';
       dt.textContent = term;
       const dd = document.createElement('dd');
       dd.className = 'text-slate-200 break-all';
-      dd.textContent = value;
+      if (href) {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = value;
+        a.className = 'text-cyan-300 underline underline-offset-2 hover:text-white';
+        if (href.startsWith('https://')) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+        dd.appendChild(a);
+      } else {
+        dd.textContent = value;
+      }
       wrap.append(dt, dd);
       dl.appendChild(wrap);
     });
