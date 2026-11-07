@@ -13,6 +13,15 @@ const asset = (id) => ({
 
 const coursera = (code) => `https://coursera.org/verify/${code}`;
 
+// One standard "How to verify" sentence per issuer. A record's own
+// `verifyNote` takes precedence over this map.
+export const VERIFY_HINT = {
+  Coursera: "Check this certificate on Coursera's verification page:",
+  'LinkedIn Learning': "Check this certificate on LinkedIn Learning's certificate page:",
+  W3Schools: "Check this certificate on W3Schools' verification page:",
+  Hyperskill: 'View this certificate on Hyperskill:',
+};
+
 export const certificates = [
   {
     id: 'ec-council-ai-essentials',
@@ -303,7 +312,6 @@ export const certificates = [
     issuer: 'Coursera',
     provider: 'Meta',
     date: '2024-09-02',
-    hours: 26,
     credentialId: 'L85VE62E1M63',
     verifyUrl: coursera('L85VE62E1M63'),
     ...asset('coursera-meta-react-basics'),
@@ -329,7 +337,6 @@ export const certificates = [
     issuer: 'LinkedIn Learning',
     provider: 'Mozilla',
     date: '2024-08-22',
-    hours: 10.4,
     credentialId: '2d03fa813f1e2e0ffeb33f409c53598bc72bb062ff1c848ee855868df0d572a2',
     verifyUrl:
       'https://www.linkedin.com/learning/certificates/2d03fa813f1e2e0ffeb33f409c53598bc72bb062ff1c848ee855868df0d572a2',
@@ -356,7 +363,6 @@ export const certificates = [
     issuer: 'LinkedIn Learning',
     provider: 'LinkedIn Learning',
     date: '2024-08-20',
-    hours: 6.2,
     credentialId: 'a15d1a1206f973ffe40390fbcc199976882a99408cac8ab1da90829e77171f50',
     verifyUrl:
       'https://www.linkedin.com/learning/certificates/a15d1a1206f973ffe40390fbcc199976882a99408cac8ab1da90829e77171f50',
@@ -383,7 +389,6 @@ export const certificates = [
     issuer: 'LinkedIn Learning',
     provider: 'LinkedIn Learning',
     date: '2024-08-19',
-    hours: 4.1,
     credentialId: 'ea8c4d1eaf097f5ecb7e65b539692afa202776b33648a452d5c6a410f2335e8a',
     verifyUrl:
       'https://www.linkedin.com/learning/certificates/ea8c4d1eaf097f5ecb7e65b539692afa202776b33648a452d5c6a410f2335e8a',
@@ -471,7 +476,6 @@ export const certificates = [
     issuer: 'Coursera',
     provider: 'Meta',
     date: '2024-07-24',
-    hours: 13,
     credentialId: 'STFAMDK2C5Y2',
     verifyUrl: coursera('STFAMDK2C5Y2'),
     ...asset('coursera-meta-version-control'),

@@ -1,3 +1,4 @@
+import { VERIFY_HINT } from '../data/certificates.js';
 import { assetUrl, formatDate } from '../utils/format.js';
 
 const CHIP_CLASS =
@@ -104,7 +105,7 @@ export class CertificateModalView {
 
     this.show('.modal-part-of', details.partOf, '.modal-part-of-text');
     this.show('.modal-description', details.description, '.modal-description-text');
-    this.show('.modal-verify-note', cert.verifyNote, '.modal-verify-note-text');
+    this.hydrateVerifyNote();
 
     this.fillList('.modal-concepts', '.modal-concepts-list', details.concepts, CHIP_CLASS);
     this.fillList('.modal-courses', '.modal-courses-list', details.courses, '');
@@ -146,8 +147,30 @@ export class CertificateModalView {
   }
 
   /**
+   * Fills "How to verify" with the record's own note, or the standard sentence
+   * for its issuer, followed by an inline Verify link when the verify URL is
+   * a web page (a `mailto:` is already explained by the note).
+   * @private
+   */
+  hydrateVerifyNote() {
+    const { cert } = this;
+    const text = cert.verifyNote ?? VERIFY_HINT[cert.issuer];
+    if (!text) return;
+    this.show('.modal-verify-note', text, '.modal-verify-note-text');
+    if (!cert.verifyUrl?.startsWith('https://')) return;
+    const p = this.view.querySelector('.modal-verify-note-text');
+    const a = document.createElement('a');
+    a.href = cert.verifyUrl;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = 'Verify';
+    a.className = 'text-cyan-300 underline underline-offset-2 hover:text-white';
+    p.append(' ', a);
+  }
+
+  /**
    * Adds the labelled facts in a fixed order: provider, issuer, issued,
-   * expires, credential ID, then duration and level when present. Expires and
+   * expires, credential ID, then level when present. Expires and
    * credential ID always show; a missing value reads "N/A", and a missing
    * credential ID links to the verify URL when there is one.
    * @private
@@ -166,7 +189,6 @@ export class CertificateModalView {
         href: cert.credentialId ? null : cert.verifyUrl,
         wide: true,
       },
-      { term: 'Duration', value: cert.hours ? `${cert.hours} hours` : null },
       { term: 'Level', value: cert.level },
     ].filter(({ value }) => value);
 
