@@ -1,5 +1,6 @@
-// Fails when certificate data would break filtering: unknown or repeated
-// topics, a missing provider, or duplicate ids.
+// Fails when certificate data would break filtering or leave a modal section
+// empty: unknown or repeated topics, a missing provider, duplicate ids, or a
+// missing About text or Key Concepts list.
 import { certificates, TOPIC } from '../src/scripts/data/certificates.js';
 
 const known = new Set(Object.values(TOPIC));
@@ -13,6 +14,10 @@ for (const record of certificates) {
   ids.add(record.id);
 
   if (!record.provider) errors.push(`${where}: missing provider`);
+  if (!record.details?.description?.trim()) errors.push(`${where}: missing details.description`);
+  if (!Array.isArray(record.details?.concepts) || record.details.concepts.length === 0) {
+    errors.push(`${where}: details.concepts must be a non-empty array`);
+  }
   if (!Array.isArray(record.topics) || record.topics.length === 0) {
     errors.push(`${where}: topics must be a non-empty array`);
     continue;
