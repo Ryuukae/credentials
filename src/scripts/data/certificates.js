@@ -38,7 +38,7 @@ export const certificates = [
     title: 'Artificial Intelligence Essentials',
     issuer: 'EC-Council',
     provider: 'EC-Council',
-    topics: [TOPIC.Security, TOPIC.AI],
+    topics: [TOPIC.SECURITY, TOPIC.AI],
     date: '2026-10-15',
     expires: '2029-10-14',
     credentialId: 'ECC2947308651',
