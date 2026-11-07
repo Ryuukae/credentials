@@ -35,3 +35,26 @@
   font-size: 0.8rem;
   font-style: italic;
 }
+
+/* Mouse devices: the page enlarges under the pointer, the card stays the same size. */
+@media (hover: hover) and (pointer: fine) {
+  .cred-frame {
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .cred-frame img {
+    transform-origin: var(--zx, 50%) var(--zy, 50%);
+    transition: transform 0.25s ease-out;
+  }
+
+  .cred-frame:hover img {
+    transform: scale(1.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cred-frame img {
+    transition: none;
+  }
+}
