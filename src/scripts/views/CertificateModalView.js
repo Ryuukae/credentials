@@ -61,9 +61,9 @@ export class CertificateModalView {
                 <h3 class="${HEADING_CLASS}"><i class="fas fa-align-left mr-2 opacity-80"></i>About</h3>
                 <p class="modal-description-text text-[15px] leading-relaxed text-slate-300/90 font-sans whitespace-pre-wrap"></p>
               </div>
-              <div class="modal-skills hidden">
-                <h3 class="${HEADING_CLASS}"><i class="fas fa-layer-group mr-2 opacity-80"></i>Skills</h3>
-                <ul class="modal-skills-list flex flex-wrap gap-2"></ul>
+              <div class="modal-concepts hidden">
+                <h3 class="${HEADING_CLASS}"><i class="fas fa-layer-group mr-2 opacity-80"></i>Key Concepts</h3>
+                <ul class="modal-concepts-list flex flex-wrap gap-2"></ul>
               </div>
               <div class="modal-courses hidden">
                 <h3 class="${HEADING_CLASS}"><i class="fas fa-book mr-2 opacity-80"></i>Courses</h3>
@@ -106,7 +106,7 @@ export class CertificateModalView {
     this.show('.modal-description', details.description, '.modal-description-text');
     this.show('.modal-verify-note', cert.verifyNote, '.modal-verify-note-text');
 
-    this.fillList('.modal-skills', '.modal-skills-list', details.skills, CHIP_CLASS);
+    this.fillList('.modal-concepts', '.modal-concepts-list', details.concepts, CHIP_CLASS);
     this.fillList('.modal-courses', '.modal-courses-list', details.courses, '');
 
     this.hydrateActions();

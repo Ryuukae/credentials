@@ -28,7 +28,16 @@ export const certificates = [
     imageAlt: 'EC-Council Artificial Intelligence Essentials certification.',
     details: {
       description: 'Certification earned through an examination administered by EC-Council.',
-      skills: ['Cyber Defense', 'Security', 'Artificial Intelligence'],
+      concepts: [
+        'Human–AI Collaboration',
+        'Data, Algorithms and Models',
+        'Machine Learning and Neural Networks',
+        'Natural Language Processing',
+        'Generative AI and LLMs',
+        'Prompt Engineering',
+        'AI Tools in the Workplace',
+        'AI Ethics and Responsible AI',
+      ],
     },
   },
   {
@@ -44,6 +53,19 @@ export const certificates = [
     details: {
       description:
         'Seven courses demonstrating the ability to apply AI to brainstorming, research, communication, content creation, data analysis and coding, including a portfolio of 20+ AI-assisted artifacts and a vibe-coded custom AI solution.',
+      concepts: [
+        'Generative AI',
+        'Structured Prompting',
+        'Evaluating AI Output for Accuracy and Bias',
+        'Responsible AI Use',
+        'Gemini Deep Research',
+        'Brainstorming and Project Planning',
+        'Summarizing and Drafting with AI',
+        'AI-Generated Images and Video',
+        'Data Cleaning and Visualization',
+        'Vibe Coding',
+        'Google AI Studio',
+      ],
       courses: [
         'AI Fundamentals',
         'AI for Brainstorming and Planning',
@@ -65,7 +87,16 @@ export const certificates = [
     verifyUrl: coursera('7Z2F92I8VKVK'),
     ...asset('coursera-google-ai-for-app-building'),
     imageAlt: 'Coursera certificate for AI for App Building from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'Vibe Coding',
+        'Google AI Studio',
+        'Web App Prototyping',
+        'Scoping Custom AI Solutions',
+        'Generative AI',
+      ],
+    },
   },
   {
     id: 'coursera-google-ai-for-data-analysis',
@@ -77,7 +108,17 @@ export const certificates = [
     verifyUrl: coursera('MH47F32OW65N'),
     ...asset('coursera-google-ai-for-data-analysis'),
     imageAlt: 'Coursera certificate for AI for Data Analysis from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'Defining Success Metrics',
+        'Data Cleaning',
+        'Spreadsheet Formulas from Plain Language',
+        'AI-Assisted Data Visualization',
+        'Business Analytics',
+        'Data Presentation',
+      ],
+    },
   },
   {
     id: 'coursera-google-ai-for-content-creation',
@@ -89,7 +130,17 @@ export const certificates = [
     verifyUrl: coursera('CVNGKVSK9VXW'),
     ...asset('coursera-google-ai-for-content-creation'),
     imageAlt: 'Coursera certificate for AI for Content Creation from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'AI Image Generation',
+        'AI Video Generation',
+        'Slide Deck Improvement',
+        'Brand Design Guidelines',
+        'AI Critique of Creative Work',
+        'Creative Design',
+      ],
+    },
   },
   {
     id: 'coursera-google-ai-for-research-and-insights',
@@ -101,7 +152,16 @@ export const certificates = [
     verifyUrl: coursera('LH4RWQ4NTSMZ'),
     ...asset('coursera-google-ai-for-research-and-insights'),
     imageAlt: 'Coursera certificate for AI for Research and Insights from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'Gemini Deep Research',
+        'Multi-Source Research Reports',
+        'Research Hubs for Mixed-Media Inputs',
+        'Fact-Checking AI Findings Against Sources',
+        'Generative AI',
+      ],
+    },
   },
   {
     id: 'coursera-google-ai-for-writing-and-communicating',
@@ -113,7 +173,17 @@ export const certificates = [
     verifyUrl: coursera('GAMK4DMI1QBA'),
     ...asset('coursera-google-ai-for-writing-and-communicating'),
     imageAlt: 'Coursera certificate for AI for Writing and Communicating from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'Meeting Summaries and To-Do Lists',
+        'Draft Feedback',
+        'Audience-Tailored Writing',
+        'Rehearsing Workplace Conversations',
+        'Report Writing',
+        'Generative AI',
+      ],
+    },
   },
   {
     id: 'coursera-google-ai-fundamentals',
@@ -125,7 +195,18 @@ export const certificates = [
     verifyUrl: coursera('2JRRNYLVQ54R'),
     ...asset('coursera-google-ai-fundamentals'),
     imageAlt: 'Coursera certificate for AI Fundamentals from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'Generative AI Basics',
+        'Structured Prompting',
+        'Evaluating Output for Accuracy and Bias',
+        'Responsible AI Use',
+        'Spotting AI Opportunities in Workflows',
+        'AI Literacy',
+        'Google Workspace',
+      ],
+    },
   },
   {
     id: 'coursera-google-ai-for-brainstorming-and-planning',
@@ -137,7 +218,17 @@ export const certificates = [
     verifyUrl: coursera('2KW9WKAIY3TN'),
     ...asset('coursera-google-ai-for-brainstorming-and-planning'),
     imageAlt: 'Coursera certificate for AI for Brainstorming and Planning from Google.',
-    details: { partOf: 'Google AI Professional Certificate' },
+    details: {
+      partOf: 'Google AI Professional Certificate',
+      concepts: [
+        'Generating and Ranking Ideas',
+        'Timeline Risk and Gap Analysis',
+        'Project Planning with AI',
+        'Organizing Project Documents',
+        'Google Workspace',
+        'Generative AI',
+      ],
+    },
   },
   {
     id: 'ec-council-network-defense-essentials',
@@ -154,7 +245,16 @@ export const certificates = [
     details: {
       description:
         'Foundational network defense principles, network security controls, identity and access management, and data protection across modern network environments.',
-      skills: ['Network Security', 'Identity and Access Management', 'Data Protection'],
+      concepts: [
+        'Network Security Fundamentals',
+        'Identity, Authentication and Authorization',
+        'Administrative, Physical and Technical Controls',
+        'Virtualization and Cloud Security',
+        'Wireless, Mobile and IoT Security',
+        'Cryptography and PKI',
+        'Data Security',
+        'Network Traffic Monitoring',
+      ],
     },
   },
   {
@@ -170,7 +270,15 @@ export const certificates = [
     imageAlt: 'W3Schools Certified JavaScript Developer certificate, Professional level.',
     details: {
       description: 'Passed the W3Schools JavaScript certification exam at the Professional level.',
-      skills: ['JavaScript'],
+      concepts: [
+        'How JavaScript Works',
+        'Variables, Data Types and Operators',
+        'Functions',
+        'Conditionals and Loops',
+        'DOM Manipulation',
+        'Event Handling',
+        'Debugging',
+      ],
     },
   },
   {
@@ -187,7 +295,16 @@ export const certificates = [
     details: {
       description:
         'Fundamental concepts behind the React library and the basic skills needed to build a simple, fast and scalable app: reusable components, props, forms and building an application in React.',
-      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'JSX'],
+      concepts: [
+        'React Components',
+        'JSX',
+        'Props',
+        'Event Handling',
+        'State and Hooks',
+        'Routing and Navigation',
+        'Conditional Rendering',
+        'Embedding Media Assets',
+      ],
     },
   },
   {
@@ -204,7 +321,16 @@ export const certificates = [
     imageAlt: 'LinkedIn Learning JavaScript Foundations Professional Certificate by Mozilla.',
     details: {
       description: 'Learning path completed in 10 hours 22 minutes.',
-      skills: ['Web Development', 'JavaScript'],
+      concepts: [
+        'Variables and Data Types',
+        'Objects and Arrays',
+        'Operators and Control Structures',
+        'Loops',
+        'Functions and Scope',
+        'Asynchronous Code and Promises',
+        'Prototypes and Classes',
+        'DOM Scripting',
+      ],
     },
   },
   {
@@ -221,7 +347,16 @@ export const certificates = [
     imageAlt: 'LinkedIn Learning certificate for JavaScript Essential Training.',
     details: {
       description: 'Course completed in 6 hours 14 minutes.',
-      skills: ['JavaScript'],
+      concepts: [
+        'Variables and Data Types',
+        'Objects and Classes',
+        'Arrays',
+        'Functions and Callbacks',
+        'Conditionals and Loops',
+        'DOM Manipulation',
+        'Events and Listeners',
+        'Debugging',
+      ],
     },
   },
   {
@@ -238,7 +373,16 @@ export const certificates = [
     imageAlt: 'LinkedIn Learning certificate for Learning the JavaScript Language.',
     details: {
       description: 'Course completed in 4 hours 7 minutes.',
-      skills: ['JavaScript'],
+      concepts: [
+        'Syntax, Variables and Strings',
+        'Objects and Arrays',
+        'Regular Expressions',
+        'Operators and Control Structures',
+        'Loops',
+        'Functions and Scope',
+        'Async Code',
+        'Prototypes and Classes',
+      ],
     },
   },
   {
@@ -253,7 +397,7 @@ export const certificates = [
       'Email the certificate ID KP014664 to contact@karpado.com with the subject "Certificate Verification Required".',
     ...asset('karpado-java-programming'),
     imageAlt: 'Karpado certificate of completion for Java Programming.',
-    details: { skills: ['Java'] },
+    details: { concepts: ['Java', 'Object-Oriented Programming'] },
   },
   {
     id: 'karpado-servlets-jsp-network-programming',
@@ -267,7 +411,7 @@ export const certificates = [
       'Email the certificate ID KP015588 to contact@karpado.com with the subject "Certificate Verification Required".',
     ...asset('karpado-servlets-jsp-network-programming'),
     imageAlt: 'Karpado certificate of completion for Servlets & JSP + Network Programming.',
-    details: { skills: ['Java', 'Servlets', 'JSP', 'Network Programming'] },
+    details: { concepts: ['Java', 'Servlets', 'JavaServer Pages (JSP)', 'Network Programming'] },
   },
   {
     id: 'coursera-meta-programming-with-javascript',
@@ -279,7 +423,18 @@ export const certificates = [
     verifyUrl: coursera('QTP6KY4X25CZ'),
     ...asset('coursera-meta-programming-with-javascript'),
     imageAlt: 'Coursera certificate for Programming with JavaScript from Meta.',
-    details: { skills: ['JavaScript'] },
+    details: {
+      concepts: [
+        'Functions, Arrays and Objects',
+        'Error Handling and Defensive Programming',
+        'Functional and Object-Oriented Programming',
+        'Scope, Classes and Inheritance',
+        'DOM Manipulation and Events',
+        'JSON',
+        'Unit Testing with Jest',
+        'Node.js and npm',
+      ],
+    },
   },
   {
     id: 'coursera-meta-version-control',
@@ -295,7 +450,15 @@ export const certificates = [
     details: {
       description:
         'Version control systems and how to build an effective software development workflow with them.',
-      skills: ['Git', 'GitHub', 'Bash (Unix Shell)', 'Linux'],
+      concepts: [
+        'Version Control Systems',
+        'Software Collaboration Workflows',
+        'Linux Command Line',
+        'Piping, Redirection and grep',
+        'Git Repositories',
+        'Branching and Merge Conflicts',
+        'GitHub Remotes',
+      ],
     },
   },
   {
@@ -308,7 +471,18 @@ export const certificates = [
     verifyUrl: coursera('4S8FVRXWFEB2'),
     ...asset('coursera-meta-introduction-to-front-end-development'),
     imageAlt: 'Coursera certificate for Introduction to Front-End Development from Meta.',
-    details: { skills: ['Front-End Development'] },
+    details: {
+      concepts: [
+        'Front-End, Back-End and Full-Stack Roles',
+        'How the Web Works (HTTP)',
+        'HTML Documents',
+        'CSS Selectors and the Box Model',
+        'Web Accessibility',
+        'Responsive Design',
+        'Bootstrap',
+        'Introduction to React',
+      ],
+    },
   },
   {
     id: 'hyperskill-introduction-to-java',
@@ -320,7 +494,19 @@ export const certificates = [
     verifyUrl: 'https://hyperskill.org/certificates/b364f09b-bd84-4afa-b60e-300900531d6d.pdf',
     ...asset('hyperskill-introduction-to-java'),
     imageAlt: 'Hyperskill certificate of completion for the Introduction to Java track.',
-    details: { description: 'Track with 3 projects and 77 topics.', skills: ['Java'] },
+    details: {
+      description: 'Track with 3 projects and 77 topics.',
+      concepts: [
+        'Java Syntax',
+        'Data Types and Variables',
+        'Operators and Expressions',
+        'Control Flow',
+        'Strings and Arrays',
+        'Object-Oriented Basics',
+        'Error Handling',
+        'Working in an IDE',
+      ],
+    },
   },
   {
     id: 'hyperskill-introduction-to-spring-boot-with-java',
@@ -335,7 +521,14 @@ export const certificates = [
       'Hyperskill certificate of completion for the Introduction to Spring Boot with Java track.',
     details: {
       description: 'Track with 3 projects and 136 topics.',
-      skills: ['Java', 'Spring Boot'],
+      concepts: [
+        'Java Fundamentals',
+        'Object-Oriented Programming',
+        'Spring Boot Autoconfiguration',
+        'Dependency Injection',
+        'RESTful APIs and Web Services',
+        'Database Persistence',
+      ],
     },
   },
   {
@@ -350,7 +543,16 @@ export const certificates = [
     imageAlt: 'Hyperskill certificate of completion for the Java Full Stack Developer track.',
     details: {
       description: 'Track with 6 projects and 271 topics.',
-      skills: ['Java', 'Full Stack Development'],
+      concepts: [
+        'Core Java',
+        'Spring Boot',
+        'REST and Backend Development',
+        'Databases',
+        'HTML and CSS Essentials',
+        'JavaScript',
+        'WebSockets',
+        'Algorithms and Data Structures',
+      ],
     },
   },
   {
@@ -364,6 +566,17 @@ export const certificates = [
     ...asset('coursera-deeplearningai-generative-ai-with-large-language-models'),
     imageAlt:
       'Coursera certificate for Generative AI with Large Language Models from DeepLearning.AI.',
-    details: { skills: ['Generative AI', 'Large Language Models'] },
+    details: {
+      concepts: [
+        'Generative AI Project Lifecycle',
+        'Transformer Architecture',
+        'Prompting and Generation Settings',
+        'Pre-training and Scaling Laws',
+        'Instruction and Parameter-Efficient Fine-Tuning (LoRA)',
+        'Model Evaluation and Benchmarks',
+        'Reinforcement Learning from Human Feedback',
+        'LLM-Powered Applications (CoT, ReAct, PAL)',
+      ],
+    },
   },
 ];
