@@ -1,0 +1,240 @@
+/* Filter bar layout and chips. Theme it with the custom properties below.
+   Breakpoints (plain CSS cannot read variables in a media query):
+   - 640px: the phone "Filters" toggle disappears and the panel is always open.
+   - 1024px: the bar becomes a sticky sidebar. */
+
+.fb-shell {
+  --fb-accent: #00ffcc;
+  --fb-surface: rgba(0, 0, 0, 0.6);
+  --fb-border: rgba(22, 78, 99, 0.45);
+  --fb-text: #e0e0e0;
+  --fb-muted: rgb(148 163 184);
+  --fb-radius: 1rem;
+  --fb-gap: 1rem;
+  --fb-sidebar-width: 280px;
+  --fb-sticky-top: 1rem;
+
+  display: grid;
+  gap: var(--fb-gap);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.fb-bar {
+  background: var(--fb-surface);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--fb-border);
+  border-radius: var(--fb-radius);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+  color: var(--fb-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.fb-head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+
+.fb-count {
+  color: var(--fb-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0;
+  margin-right: auto;
+}
+
+.fb-sort {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fb-label {
+  color: var(--fb-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fb-select,
+.fb-toggle,
+.fb-clear,
+.fb-chip {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--fb-border);
+  border-radius: 999px;
+  color: var(--fb-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.9rem;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.fb-select {
+  border-radius: 0.75rem;
+  max-width: 100%;
+}
+
+.fb-clear {
+  border-color: transparent;
+  color: var(--fb-accent);
+  font-style: italic;
+}
+
+.fb-clear[hidden] {
+  display: none;
+}
+
+.fb-select:hover,
+.fb-toggle:hover,
+.fb-clear:hover,
+.fb-chip:hover {
+  border-color: var(--fb-accent);
+  color: var(--fb-accent);
+}
+
+.fb-select:focus-visible,
+.fb-toggle:focus-visible,
+.fb-clear:focus-visible,
+.fb-chip:focus-visible {
+  outline: 2px solid var(--fb-accent);
+  outline-offset: 2px;
+}
+
+.fb-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fb-facet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fb-chip {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.fb-chip-count {
+  color: var(--fb-muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Selected: filled accent with glow, like Home's spark buttons. */
+.fb-chip[aria-pressed='true'] {
+  background: var(--fb-accent);
+  border-color: var(--fb-accent);
+  box-shadow: 0 0 14px rgba(0, 255, 204, 0.55);
+  color: #000;
+}
+
+.fb-chip[aria-pressed='true'] .fb-chip-count {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* A chip that would give no results. Still focusable, so focus never drops. */
+.fb-chip[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.fb-chip[aria-disabled='true']:hover {
+  border-color: var(--fb-border);
+  color: var(--fb-text);
+}
+
+/* Phone (< 640px): facets sit in a collapsible panel, closed by default. */
+.fb-toggle {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 639px) {
+  .fb-bar:not([data-open='true']) .fb-panel {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .fb-toggle {
+    display: none;
+  }
+}
+
+/* Desktop (>= 1024px): sticky sidebar. Order: count, Sort, facets, Clear all. */
+@media (min-width: 1024px) {
+  .fb-shell {
+    gap: 2rem;
+    grid-template-columns: var(--fb-sidebar-width) minmax(0, 1fr);
+  }
+
+  .fb-bar {
+    align-self: start;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    position: sticky;
+    top: var(--fb-sticky-top);
+  }
+
+  .fb-head {
+    display: contents;
+  }
+
+  .fb-count {
+    margin-right: 0;
+    order: 1;
+  }
+
+  .fb-sort {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.4rem;
+    order: 2;
+  }
+
+  .fb-panel {
+    order: 3;
+  }
+
+  .fb-clear {
+    align-self: flex-start;
+    order: 4;
+  }
+
+  /* Pointer devices get compact controls; touch widths keep the 40px targets. */
+  .fb-select,
+  .fb-clear,
+  .fb-chip {
+    min-height: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-select,
+  .fb-toggle,
+  .fb-clear,
+  .fb-chip {
+    transition: none;
+  }
+}
